@@ -14,6 +14,25 @@ describe("Utils test suite", () => {
             console.log('Teardown')
         })
 
+        it("Should throw error on invalid argument - function", () => {
+            function expectError() {
+                const act = sut.toUpperCase('')
+            }
+            
+            expect(expectError).toThrow() // posso fazer assim
+        })
+
+        it("Should throw error on invalid argument - try catch", (done) => {
+            try {
+                sut.toUpperCase('')
+                done('GetStringInfo should throw error for invalid arg!')
+            } catch (error) {
+                expect(error).toBeInstanceOf(Error)
+                expect(error).toHaveProperty('message', 'Invalid arg!')
+                done()
+            }
+        })
+
         it('Should return correct upperCase', () => {
 
             const act = sut.toUpperCase('abc')
