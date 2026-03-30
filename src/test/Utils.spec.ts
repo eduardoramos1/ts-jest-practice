@@ -1,7 +1,7 @@
 import { getStringInfo, StringUtils, toUpperCase } from "../app/Utils";
 
 describe("Utils test suite", () => {
-    describe("StringUtils tests", () => {
+    describe.only("StringUtils tests", () => {
         let sut: StringUtils 
 
         beforeEach(() => {
@@ -33,7 +33,7 @@ describe("Utils test suite", () => {
             }
         })
 
-        it('Should return correct upperCase', () => {
+        it.only('Should return correct upperCase', () => {
 
             const act = sut.toUpperCase('abc')
 
